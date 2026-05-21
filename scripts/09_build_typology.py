@@ -47,10 +47,12 @@ ROOT = Path(__file__).resolve().parent.parent
 VALID_ARCHETYPES = {
     "young-prof-nightlife",
     "established-lakefront",
+    "established-mainstreet",      # walkable commercial corridor, not lakefront
     "gentrifying-edge",
     "quiet-artsy",
     "industrial-cool",
     "latino-cultural",
+    "asian-cultural",              # added for Chinatown/etc.
     "lgbtq-anchor",
     "family-residential",
     "university-adjacent",

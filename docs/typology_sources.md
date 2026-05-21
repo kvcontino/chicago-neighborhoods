@@ -83,15 +83,18 @@ finite set so the categorical map symbology stays legible.
 | Archetype | Loose description |
 |---|---|
 | `young-prof-nightlife` | Bar/restaurant-dense, weekend energy, 25-35 cohort skew, transient |
-| `established-lakefront` | High-amenity, older demographic, expensive, low turnover |
+| `established-lakefront` | High-amenity, older demographic, expensive, low turnover, lake access |
+| `established-mainstreet` | Walkable commercial corridor, mid-amenity, mixed-age, NOT lakefront |
 | `gentrifying-edge` | Active demographic/economic transition, mixed-income, friction |
 | `quiet-artsy` | Lower density, creative-class anchored, studios/galleries, residential |
 | `industrial-cool` | Former/active industrial, warehouse-to-residential conversions, edge-of-grid |
 | `latino-cultural` | Strong Latino identity, established commercial corridors, multigenerational |
-| `LGBTQ-anchor` | Visible queer cultural infrastructure, density of community institutions |
+| `asian-cultural` | Strong Asian-American identity (Chinatown, Koreatown stretches, etc.) |
+| `lgbtq-anchor` | Visible queer cultural infrastructure, density of community institutions |
 | `family-residential` | Family-skewed demographics, schools/parks dominant, low nightlife |
 | `university-adjacent` | Student population shaping commerce, seasonal density |
 | `transit-bedroom` | Quiet residential with strong commuter rail access, low local commercial |
+| `diverse-bohemian` | Highly diverse, mixed-class, layered immigrant + arts texture |
 
 Some CAs will fit two archetypes — that's fine; the record can use
 a primary + secondary. The map can color by primary.

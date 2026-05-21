@@ -59,9 +59,21 @@ SQ_FT_PER_SQ_MI = 27_878_400
 # -- thresholds ---------------------------------------------------------
 RENT_CEILING = 3200
 SAFETY_MULTIPLIER = 1.5
+SAFETY_MULTIPLIER_COMMERCIAL = 2.5   # exception: commercial-heavy CAs (see COMMERCIAL_CAS)
 TRANSIT_MIN_RAIL = 1
 TRANSIT_MIN_BUS_PER_SQMI = 10
 VIOLATIONS_DROP_TOP_PCT = 10
+
+# CAs whose daytime population dwarfs residential pop, inflating per-capita
+# crime rates against the residential denominator. We apply a higher safety
+# multiplier to these so they're not unfairly cut by a measurement artifact.
+# Hand-curated; expand only if you can defend the addition.
+COMMERCIAL_CAS = {
+    "LOOP",                   # downtown business district
+    "NEAR NORTH SIDE",        # Magnificent Mile, River North
+    "NEAR WEST SIDE",         # West Loop, Fulton Market, United Center area
+    "NEAR SOUTH SIDE",        # McCormick Place, museum campus
+}
 
 # Soft-score weights (must sum to 1.0)
 WEIGHTS = {
@@ -144,13 +156,17 @@ def apply_filters(df: pd.DataFrame):
                          r["median_rent_current"], RENT_CEILING))
     df.loc[rent_fail, "passed"] = False
 
-    # 2. Safety floor
+    # 2. Safety floor — commercial CAs get a higher multiplier to compensate
+    # for inflated per-resident rates driven by non-resident daytime population.
     citywide_median_rate = df["violent_per_1k"].median()
-    safety_cap = SAFETY_MULTIPLIER * citywide_median_rate
-    safety_fail = (df["violent_per_1k"] > safety_cap) & df["passed"]
+    df["_safety_cap"] = df["community"].apply(
+        lambda c: SAFETY_MULTIPLIER_COMMERCIAL * citywide_median_rate
+        if c in COMMERCIAL_CAS else SAFETY_MULTIPLIER * citywide_median_rate
+    )
+    safety_fail = (df["violent_per_1k"] > df["_safety_cap"]) & df["passed"]
     for _, r in df[safety_fail].iterrows():
         drop_log.append((r["area_num_1"], r["community"], "safety_floor",
-                         r["violent_per_1k"], safety_cap))
+                         r["violent_per_1k"], r["_safety_cap"]))
     df.loc[safety_fail, "passed"] = False
 
     # 3. Transit minimum

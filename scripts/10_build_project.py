@@ -71,10 +71,12 @@ ESRI_HILLSHADE = (
 ARCHETYPE_COLORS = {
     "young-prof-nightlife":    "#e41a1c",   # red
     "established-lakefront":   "#377eb8",   # blue
+    "established-mainstreet":  "#1f78b4",   # darker blue (kin to lakefront)
     "gentrifying-edge":        "#ff7f00",   # orange
     "quiet-artsy":             "#4daf4a",   # green
     "industrial-cool":         "#984ea3",   # purple
     "latino-cultural":         "#ffff33",   # yellow
+    "asian-cultural":          "#fdbf6f",   # peach (related to yellow but distinct)
     "lgbtq-anchor":            "#f781bf",   # pink
     "family-residential":      "#a6d854",   # light green
     "university-adjacent":     "#80b1d3",   # light blue
