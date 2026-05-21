@@ -259,10 +259,11 @@ def build_layout(project: QgsProject, layers: dict) -> QgsPrintLayout:
                                       QgsUnitTypes.LayoutMillimeters))
     layout.addLayoutItem(title)
 
+    n_survivors = sum(1 for _ in layers["typology"].getFeatures())
     subtitle = QgsLayoutItemLabel(layout)
     subtitle.setText(
-        "46 surviving Community Areas viewed through four lenses · "
-        "green always means \"better\" on the quantitative panels"
+        f"{n_survivors} surviving Community Areas viewed through four lenses · "
+        f"green always means \"better\" on the quantitative panels"
     )
     subtitle.setTextFormat(_text_fmt(family="Sans", size=8.5, italic=True,
                                       color="#555"))

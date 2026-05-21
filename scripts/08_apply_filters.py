@@ -63,6 +63,7 @@ SAFETY_MULTIPLIER_COMMERCIAL = 2.5   # exception: commercial-heavy CAs (see COMM
 TRANSIT_MIN_RAIL = 1
 TRANSIT_MIN_BUS_PER_SQMI = 10
 VIOLATIONS_DROP_TOP_PCT = 10
+PCT_25_39_MIN = 28.0                 # demographic-fit hard filter (user-specific)
 
 # CAs whose daytime population dwarfs residential pop, inflating per-capita
 # crime rates against the residential denominator. We apply a higher safety
@@ -75,12 +76,26 @@ COMMERCIAL_CAS = {
     "NEAR SOUTH SIDE",        # McCormick Place, museum campus
 }
 
-# Soft-score weights (must sum to 1.0)
+# Structural exclusions — CAs whose metrics are real but not interpretable
+# as residential signal. OHARE = the airport CA; ~15k residents are mostly
+# cargo/airline workforce housing, not a neighborhood in the normal sense.
+ALWAYS_EXCLUDE = {"OHARE"}
+
+# Soft-score weights (must sum to 1.0).
+# 5-axis composite — adds age_match (% adults 25-39 in CA, normalized) as a
+# user-profile axis. Weights are derived from a "profile-matched" framing:
+#   - quality-of-living axes (walk, transit) get higher weight
+#   - safety still meaningful as headroom above the hard filter
+#   - cost de-emphasized (the $135k salary makes it less of a constraint)
+#   - age_match treated as peer to safety in importance
+# Original 4-axis ratios (walk 0.30 / transit 0.30 / safety 0.25 / cost 0.15)
+# scaled to 0.80 total to make room for age_match at 0.20.
 WEIGHTS = {
-    "walk_score_proxy":    0.25,
-    "transit_headroom":    0.25,
-    "safety_headroom":     0.25,
-    "cost_headroom":       0.25,
+    "walk_score_proxy":    0.24,
+    "transit_headroom":    0.24,
+    "safety_headroom":     0.20,
+    "cost_headroom":       0.12,
+    "age_match":           0.20,
 }
 
 
@@ -149,8 +164,15 @@ def apply_filters(df: pd.DataFrame):
 
     df["passed"] = True
 
+    # 0. Structural exclusions (OHARE etc.) — applied first, no scoring
+    excl_fail = df["community"].isin(ALWAYS_EXCLUDE)
+    for _, r in df[excl_fail].iterrows():
+        drop_log.append((r["area_num_1"], r["community"], "always_exclude",
+                         "structural", f"in {sorted(ALWAYS_EXCLUDE)}"))
+    df.loc[excl_fail, "passed"] = False
+
     # 1. Rent ceiling
-    rent_fail = (df["median_rent_current"] > RENT_CEILING) & df["median_rent_current"].notna()
+    rent_fail = (df["median_rent_current"] > RENT_CEILING) & df["median_rent_current"].notna() & df["passed"]
     for _, r in df[rent_fail].iterrows():
         drop_log.append((r["area_num_1"], r["community"], "rent_ceiling",
                          r["median_rent_current"], RENT_CEILING))
@@ -189,6 +211,15 @@ def apply_filters(df: pd.DataFrame):
                          r["violations_per_1k_units"], viol_cutoff))
     df.loc[viol_fail, "passed"] = False
 
+    # 5. Demographic fit — drop CAs where the user's cohort (25-39) is
+    # below the threshold. Family-residential outer-ring CAs cluster <28%;
+    # cohort-hub urban CAs cluster >35%. 28% is the user-set threshold.
+    age_fail = (df["pct_25_39"] < PCT_25_39_MIN) & df["passed"] & df["pct_25_39"].notna()
+    for _, r in df[age_fail].iterrows():
+        drop_log.append((r["area_num_1"], r["community"], "pct_25_39_floor",
+                         r["pct_25_39"], PCT_25_39_MIN))
+    df.loc[age_fail, "passed"] = False
+
     drop_df = pd.DataFrame(drop_log, columns=["area_num_1", "community", "filter", "value", "threshold"])
     return df, drop_df
 
@@ -209,6 +240,9 @@ def compute_soft_scores(survivors: pd.DataFrame) -> pd.DataFrame:
 
     # cost_headroom: inverted — lower rent → higher score
     s["cost_headroom"] = minmax(-s["median_rent_current"])
+
+    # age_match: higher % adults 25-39 → higher score (within survivors)
+    s["age_match"] = minmax(s["pct_25_39"])
 
     # composite
     s["composite_score"] = sum(s[k] * w for k, w in WEIGHTS.items())
@@ -249,7 +283,8 @@ def main():
     drop_df.to_csv(drop_log_path, index=False)
 
     rank_cols = ["area_num_1", "community", "composite_score",
-                 "walk_score_proxy", "transit_headroom", "safety_headroom", "cost_headroom",
+                 "walk_score_proxy", "transit_headroom", "safety_headroom",
+                 "cost_headroom", "age_match",
                  "median_rent_current", "violent_per_1k", "rail_count", "bus_per_sqmi",
                  "population", "median_hh_income", "pct_25_39", "pct_never_married_15plus",
                  "pct_bachelors_plus", "pct_wfh"]
@@ -262,12 +297,13 @@ def main():
     print(f"     → {drop_log_path}")
     print(f"     → {shortlist_path}")
 
-    print(f"\n[08] Top 15 by composite score:")
-    print(f"     {'rank':>4} {'CA':<22} {'score':>6} {'walk':>5} {'tran':>5} {'safe':>5} {'cost':>5} {'rent':>7}")
-    for i, (_, r) in enumerate(shortlist.head(15).iterrows(), 1):
+    print(f"\n[08] Ranked survivors by composite score (5-axis):")
+    print(f"     {'rank':>4} {'CA':<22} {'score':>6} {'walk':>5} {'tran':>5} {'safe':>5} {'cost':>5} {'age':>5} {'rent':>7}")
+    for i, (_, r) in enumerate(shortlist.iterrows(), 1):
         print(f"     {i:>4} {r['community']:<22} {r['composite_score']:>6.1f} "
               f"{r['walk_score_proxy']:>5.1f} {r['transit_headroom']:>5.1f} "
               f"{r['safety_headroom']:>5.1f} {r['cost_headroom']:>5.1f} "
+              f"{r['age_match']:>5.1f} "
               f"${r['median_rent_current']:>6.0f}")
 
 

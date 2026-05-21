@@ -224,10 +224,12 @@ def build_layout(project: QgsProject) -> QgsPrintLayout:
     layout.addLayoutItem(title)
 
     # ---- Subtitle (italic, gray) ----
+    typology_layers = project.mapLayersByName("Survivors — typology")
+    n_survivors = typology_layers[0].featureCount() if typology_layers else "?"
     subtitle = QgsLayoutItemLabel(layout)
     subtitle.setText(
-        "46 of 77 Community Areas, characterized by qualitative archetype "
-        "after safety, transit, and housing filters"
+        f"{n_survivors} of 77 Community Areas, characterized by qualitative archetype "
+        f"after the full filter stack"
     )
     subtitle.setTextFormat(_text_fmt(family="Sans", size=9.5, italic=True,
                                      color="#555555", halo=False))

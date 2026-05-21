@@ -231,11 +231,19 @@ def build_layout(project: QgsProject, top3_records: list) -> QgsPrintLayout:
                                       QgsUnitTypes.LayoutMillimeters))
     layout.addLayoutItem(title)
 
-    subtitle = QgsLayoutItemLabel(layout)
-    subtitle.setText(
-        "Top 10 Community Areas by composite score, in full color. "
-        "Other 36 survivors muted; filtered-out CAs as ghost outlines only."
+    n_top = 10
+    decision_layers = project.mapLayersByName("Decision shortlist")
+    n_total = decision_layers[0].featureCount() if decision_layers else 0
+    n_top_actual = min(n_top, n_total)
+    n_others = max(0, n_total - n_top)
+    subtitle_text = (
+        f"Top {n_top_actual} Community Areas by composite score, in full color. "
     )
+    if n_others > 0:
+        subtitle_text += f"Other {n_others} survivor{'s' if n_others != 1 else ''} muted; "
+    subtitle_text += "filtered-out CAs as ghost outlines only."
+    subtitle = QgsLayoutItemLabel(layout)
+    subtitle.setText(subtitle_text)
     subtitle.setTextFormat(_text_fmt(size=9, italic=True, color="#555",
                                        halo=False))
     subtitle.adjustSizeToText()
