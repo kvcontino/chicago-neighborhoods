@@ -1,0 +1,1055 @@
+LAKE VIEW:
+  archetype: young-prof-nightlife
+  secondary_archetype: lgbtq-anchor
+  key_phrases:
+  - Wrigleyville sports/bar core
+  - Boystown / Northalsted LGBTQ commercial district
+  - high renter share, transient young-professional turnover
+  - Belmont/Halsted/Clark commercial corridors
+  - CTA Red+Brown line spine
+  notable_for: Highest amenity density on the North Side outside the Loop; two distinct sub-areas
+    — Wrigleyville's bar scene around the ballpark and Northalsted's LGBTQ commercial district.
+    Heavy weekend foot traffic; weeknight calmer.
+  caveats: Gameday surge crowds and noise around Wrigley; turnover-driven rental market means
+    weak neighbor continuity. Bar-density concentrates rather than spreads, so block-level
+    vibe varies sharply.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: TODO — verify recent Lake View / Wrigleyville coverage
+    date: TODO
+  - tier: 2
+    outlet: Chicago Reader
+    url: TODO — verify Northalsted commercial-district pieces
+    date: TODO
+  draft_status: needs-citation-verification
+NEAR NORTH SIDE:
+  archetype: established-lakefront
+  secondary_archetype: young-prof-nightlife
+  key_phrases:
+  - River North + Gold Coast + Streeterville subareas
+  - Magnificent Mile retail spine + Navy Pier
+  - highest-end Chicago residential outside Lincoln Park
+  - Red Line + bus dense; lakefront path access
+  - tourist + business + residential mix
+  notable_for: Most amenity-dense non-Loop CA in Chicago. River North = high-end restaurants/galleries/clubs;
+    Gold Coast = old-money lakefront high-rises; Streeterville = hospital/condo wedge. Walkability
+    and transit at the top of the city. Strong young-professional + wealthy-empty-nester resident
+    mix.
+  caveats: Most expensive rents in our data ($2,791 median). Tourist density in River North
+    + Mag Mile core can wear thin as a resident. Gold Coast can feel impersonal/transactional.
+    Neighborhood feel varies sharply between River North (going-out) and Gold Coast (quiet
+    residential).
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/category/downtown/river-north-gold-coast-near-north-side/
+    date: ongoing-category
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/02/05/theres-much-more-to-downtown-than-the-loop-new-neighbor-drawn-map-shows/
+    date: '2025-02-05'
+  draft_status: source-grounded
+EDGEWATER:
+  archetype: established-lakefront
+  secondary_archetype: diverse-bohemian
+  key_phrases:
+  - Andersonville commercial district (Clark/Foster)
+  - lakefront high-rises along Sheridan
+  - established LGBTQ-friendly demographic
+  - Bryn Mawr historic district
+  - Red Line + lakefront path access
+  notable_for: Quieter and more residential than Lake View but still North Side lakefront.
+    Andersonville's Clark Street commercial corridor is one of the strongest 'main street'
+    destinations in Chicago for independent retail and restaurants. Lakefront access without
+    Lincoln Park rent.
+  caveats: Andersonville energy is concentrated on Clark; blocks east of Broadway can feel
+    sleepier than expected. North end (near Loyola) blends into Rogers Park; south end (near
+    Uptown) has more variable street feel.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: TODO — Andersonville coverage
+    date: TODO
+  - tier: 2
+    outlet: Chicago Reader
+    url: TODO
+    date: TODO
+  draft_status: needs-citation-verification
+LINCOLN SQUARE:
+  archetype: established-mainstreet
+  secondary_archetype: family-residential
+  key_phrases:
+  - DANK Haus + Chicago Brauhaus German-American cultural anchor
+  - 'Lincoln Ave near Western: pedestrianized commercial spine'
+  - post-gentrification stable demographic
+  - Brown Line spine (Western, Damen, Rockwell stops)
+  - Old Town School of Folk Music
+  notable_for: One of Chicago's strongest 'main street' walkable cores outside the lakefront
+    — German-heritage commercial corridor with cultural center, music institution (Old Town
+    School), and dense food/retail along Lincoln Ave. Quieter and more family-tilting than
+    Lake View; more amenity-rich than Irving Park or North Center.
+  caveats: 'Limited nightlife — mostly daytime/early-evening commerce. Subcorridor concentration:
+    walk away from Lincoln Ave and density drops fast. Family-tilting demographic may feel
+    quiet for newly-single arrival.'
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2020/09/08/lincoln-squares-legendary-chicago-brauhaus-set-to-reopen-inside-dank-haus-cultural-center/
+    date: '2020-09-08'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2021/09/17/want-to-help-preserve-lincoln-squares-german-history-buy-a-beer-at-danks-neighborhood-nights/
+    date: '2021-09-17'
+  draft_status: source-grounded
+ROGERS PARK:
+  archetype: diverse-bohemian
+  secondary_archetype: university-adjacent
+  key_phrases:
+  - Loyola University anchor on the north end
+  - highly racially + economically diverse
+  - lakefront access without Lincoln Park price tag
+  - Red Line spine; long commute to Loop
+  - Devon Avenue South Asian corridor (Edgewater border)
+  notable_for: One of Chicago's most diverse Community Areas across race, class, and immigration
+    status. Lakefront access, Loyola campus, and a long-running independent arts/literary
+    scene (Heartland Cafe alumni, small theaters). Rents materially below comparable North
+    Side neighborhoods.
+  caveats: Far north — Red Line commute to Loop is 45+ minutes. Block-level variation is significant;
+    the lakefront blocks are very different from blocks west of Clark. Some longstanding concerns
+    about petty property crime; check block-specific data before committing.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: TODO — verify Rogers Park neighborhood coverage
+    date: TODO
+  - tier: 2
+    outlet: Chicago Reader
+    url: TODO — verify arts/literary scene pieces
+    date: TODO
+  draft_status: needs-citation-verification
+NORTH CENTER:
+  archetype: established-mainstreet
+  secondary_archetype: family-residential
+  key_phrases:
+  - Roscoe Village sub-area — 'Lakeview's quiet niche' (Block Club framing)
+  - Western/Lincoln/Damen residential, oversized for North Side
+  - Brown Line + Western Ave bus
+  - high family + dog-walking density; strong block-club culture
+  - Maison Pasquale + similar boutique food adding a 'European market' feel
+  notable_for: North Side family-residential anchor; less amenity-dense than Lake View but
+    with significantly better safety + housing-stock + school-district profile. Roscoe Village
+    'gathering-place' commercial feel along Roscoe Ave is the closest thing to a small-town
+    main street within the city.
+  caveats: Skews older-millennial-with-kids; newly-single arrival may feel out of the demographic
+    mainstream. Limited late-night options. Quiet enough that some find it sleepy on weekends.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/category/lakeview-wrigleyville/roscoe-village/
+    date: ongoing-category
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/09/16/maison-pasquale-brings-charm-of-european-markets-to-roscoe-village/
+    date: '2025-09-16'
+  draft_status: source-grounded
+IRVING PARK:
+  archetype: diverse-bohemian
+  secondary_archetype: family-residential
+  key_phrases:
+  - ethnically diverse — historic Polish + Latino + South Asian + Filipino
+  - first affordable housing for Native Americans (under construction, 2025)
+  - Blue Line + Metra UP-NW access
+  - Independence Park anchor, Independence Library
+  - more affordable than Lake View / Lincoln Square at comparable distance
+  notable_for: Solidly diverse Northwest Side neighborhood — multiple immigrant communities
+    layered over generations, anchored by Independence Park and a stable residential housing
+    stock. Better rent-to-amenity ratio than the lakefront neighborhoods one CA east. Blue
+    Line gives Loop access without Lake View prices.
+  caveats: Lower walkability than nearby lakefront CAs — commercial nodes are spread out along
+    Irving Park Rd. Block-to-block variation is noticeable. Less of a 'destination' vibe than
+    Logan Square or Lincoln Square.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/07/11/indigenous-leaders-bless-irving-park-land-for-citys-1st-affordable-housing-for-native-americans/
+    date: '2025-07-11'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2019/01/22/inside-independence-library-irving-parks-first-ever-permanent-public-library-photos/
+    date: '2019-01-22'
+  draft_status: source-grounded
+ALBANY PARK:
+  archetype: diverse-bohemian
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - one of Chicago's most ethnically diverse CAs
+  - ~40 languages in neighborhood schools
+  - ~50% Hispanic, 14% Asian (largely Korean), 29% white, 4% Black
+  - historic Korean commercial corridor on Lawrence (Seoul Drive)
+  - Brown Line terminus (Kimball)
+  notable_for: 'WBEZ''s neighborhood-guide framing: highest immigrant share of any Chicago
+    CA, with 40+ languages in schools. Layered Korean / Latino / South Asian / Eastern European
+    character that doesn''t fit a single archetype. Cheaper than near-lakefront, dense restaurants
+    + groceries, Brown Line access.'
+  caveats: End of the Brown Line — longer commute than mid-line CAs. Some blocks read more
+    residential than 'cool' despite the diversity story. Demographic mix may feel like cultural-tourist
+    territory without active community engagement.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/culture-the-arts/2024/05/08/albany-park-chicago-neighborhood-guide
+    date: '2024-05-08'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/culture/2012/10/22/albany-park-past-and-present
+    date: '2012-10-22'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2023/05/11/with-10-million-from-city-albany-park-bank-can-help-neighbors-start-businesses-and-buy-homes/
+    date: '2023-05-11'
+  draft_status: source-grounded
+PORTAGE PARK:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - Six Corners (Irving/Cicero/Milwaukee) commercial node
+  - Portage Park (the park) + Gladstone Park anchor
+  - growing Latino population (+6k since 2010 across NW Side cluster)
+  - Blue Line (Portage Park/Irving Park stations)
+  - bungalow-belt single-family housing
+  notable_for: Mid-line Blue Line CA with strong family-residential character + diversifying
+    demographics. Six Corners area being redeveloped with residential + commercial mix.
+  caveats: 2022 mass shooting near Portage Park bar — police boosted patrols after. Limited
+    late-night safe options. Single-family stock means few rental options.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/12/20/after-mass-shooting-near-portage-park-bar-police-to-boost-patrols-near-nw-side-nightlife-spots/
+    date: '2022-12-20'
+  draft_status: source-grounded
+JEFFERSON PARK:
+  archetype: transit-bedroom
+  secondary_archetype: family-residential
+  key_phrases:
+  - '''Gateway to the Northwest Side'' — major Blue Line + Metra + bus transit hub'
+  - ethnic-white bungalow belt (Polish, German, Italian, Irish heritage)
+  - Copernicus Center cultural anchor
+  - 45th Ward includes Old Irving Park / Gladstone Park edges
+  - affordable housing for veterans + people with disabilities (2022 project)
+  notable_for: Best transit-to-affordability ratio on the Northwest Side — Blue Line ride
+    to Loop, Metra to suburbs, lots of bus routes converge. Bungalow housing stock + family-residential
+    character. Cheaper than mid-line Blue Line CAs.
+  caveats: Limited night life, limited 'cool' factor. Demographically older and whiter than
+    the city overall. Recent shootings near Portage/Jefferson Park nightlife spots (2022).
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/jefferson-park-portage-park-norwood-park/
+    date: ongoing-category
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/11/07/over-400-people-apply-for-spots-in-jefferson-park-affordable-housing-for-veterans-people-with-disabilities/
+    date: '2022-11-07'
+  draft_status: source-grounded
+NORWOOD PARK:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - far NW Side, city-edge residential
+  - high homeownership rate; very few rentals
+  - Norwood Park Historic District + Old Norwood Park architecture
+  - Metra UP-NW (Norwood Park station)
+  - suburban-feeling, low density
+  notable_for: Quietest, most suburban-feeling NW Side CA in our survivor list. Architectural
+    distinction in the historic district. Solidly family-residential demographic.
+  caveats: Almost no rental market — predominantly owner-occupied single-family. Very limited
+    amenities, no nightlife. Long commute to Loop.
+  citations: []
+  draft_status: general-knowledge
+CLEARING:
+  archetype: transit-bedroom
+  secondary_archetype: family-residential
+  key_phrases:
+  - Midway Airport's immediate southwest neighbor
+  - ethnic-white + growing Latino residential
+  - 63rd St commercial spine
+  - Orange Line (Midway terminus)
+  - single-family / bungalow housing
+  notable_for: Midway-airport-employee dormitory CA — fast Orange Line into the Loop, cheap
+    housing, very residential.
+  caveats: Airport noise. Limited culture/nightlife. Suburban feel.
+  citations: []
+  draft_status: general-knowledge
+BRIGHTON PARK:
+  archetype: latino-cultural
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - historic Polish stronghold (37% Polish in 1930) → now majority Mexican
+  - Archer Avenue commercial spine
+  - blue-collar working-class identity continuous through ethnic shift
+  - Archer Heights/Brighton Park interleave
+  - Orange Line near Western/Pulaski
+  notable_for: One of the cleanest examples of Chicago's Polish→Mexican working-class demographic
+    transition. Active commercial corridors with primarily Mexican restaurants/groceries;
+    Polish heritage visible in the housing stock and a few remaining institutions.
+  caveats: Limited late-night/professional-class amenities. Some pockets at the southern edge
+    bordering Back of the Yards carry safety concerns. Lower walkability than near-Loop neighborhoods.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/culture/2013/02/05/brighton-park-past-and-present
+    date: '2013-02-05'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/category/bridgeport-chinatown-mckinley-park/gage-park-brighton-park/
+    date: ongoing-category
+  draft_status: source-grounded
+LOGAN SQUARE:
+  archetype: gentrifying-edge
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - former Puerto Rican enclave, mid-gentrification
+  - music venue corridor on Milwaukee Avenue
+  - rapid rent acceleration 2015-present
+  - Logan & Kedzie Boulevards architecture
+  - Blue Line spine to Loop
+  notable_for: Active music + bar + restaurant scene anchored on Milwaukee between California
+    and Western. Strong sense of place and architectural texture (boulevards, greystones).
+    Long-time Latino cultural presence still visible in commercial corridors.
+  caveats: Generational and economic friction between long-time Latino residents and recent
+    professional-class arrivals is real and ongoing. Rent trajectory is steep — what's affordable
+    today may not be in 18 months. Bar-density means weekend street noise.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: TODO — verify gentrification + displacement coverage
+    date: TODO
+  - tier: 2
+    outlet: WBEZ
+    url: TODO — verify Logan Square housing pieces
+    date: TODO
+  draft_status: needs-citation-verification
+FOREST GLEN:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - wealthy far NW Side residential CA
+  - Sauganash + Edgebrook subareas — North Branch riverine setting
+  - high homeownership, large lots, expensive single-family
+  - Metra UP-NW (Forest Glen station)
+  - Top safety score in our data (citywide median × 0.4)
+  notable_for: Wealthiest, safest, most park-adjacent NW Side residential CA. Sauganash and
+    Edgebrook have a wooded, almost-suburban character with North Branch trail access.
+  caveats: Almost no rental stock. Quiet to the point of sleepy for a single arrival. Long
+    commute to Loop (Metra only).
+  citations: []
+  draft_status: general-knowledge
+EDISON PARK:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - most suburban-feeling CA in the city (NW corner)
+  - predominantly ethnic-white (Irish, Polish, German)
+  - extremely high homeownership rate
+  - Metra UP-NW terminus (Edison Park station)
+  - small commercial strip on Northwest Highway
+  notable_for: Effectively a suburb inside the city limits — tight-knit, white-ethnic, family-residential,
+    with a small Main Street feel on Northwest Highway.
+  caveats: Almost no rental market. Demographic homogeneity. Very limited amenities. Not a
+    typical professional-class destination.
+  citations: []
+  draft_status: general-knowledge
+WEST RIDGE:
+  archetype: diverse-bohemian
+  secondary_archetype: asian-cultural
+  key_phrases:
+  - Chicago's largest Orthodox Jewish population
+  - 'Devon Avenue: South Asian + Jewish commercial corridor side-by-side'
+  - post-1965 Indian/Pakistani wave layered over earlier Jewish settlement
+  - Western/Devon/Touhy retail nodes
+  - Red Line (Loyola station) at west edge
+  notable_for: One of the most distinctive cultural-religious neighborhoods in Chicago — Orthodox
+    Jewish institutions (synagogues, kosher delis, Yeshiva schools) interwoven with South
+    Asian groceries, restaurants, and sari shops along Devon. 'Re-Jew-venating Devon Avenue'
+    is a real ongoing project (per WBEZ). Far cheaper than Rogers Park/Edgewater eastward.
+  caveats: Hate-crime incidents (2022 anti-Semitic vandalism cluster) and occasional violent
+    incidents reported. Far north — slow transit. Both anchor communities are tight-knit;
+    secular non-South-Asian professional arrival is demographically distinct.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/curious-city/2023/08/04/how-did-west-rogers-park-become-an-orthodox-jewish-neighborhood
+    date: '2023-08-04'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/01/31/more-swastikas-found-in-west-ridge-as-police-investigate-anti-semitic-vandalism-this-is-going-to-stop-now/
+    date: '2022-01-31'
+  draft_status: source-grounded
+BRIDGEPORT:
+  archetype: diverse-bohemian
+  secondary_archetype: gentrifying-edge
+  key_phrases:
+  - historic Irish-American political-machine stronghold (Daley clan)
+  - now 41% Asian, 20% Hispanic, 35% white (per WBEZ)
+  - Ramova Theater restoration, Marz Brewing — emerging art/food scene
+  - housing up ~400% over 10 years
+  - Red/Orange Line + Sox-35th
+  notable_for: South Side neighborhood undergoing one of Chicago's most striking demographic
+    transitions — once white-ethnic Irish/German political machine base, now plurality-Asian
+    with a growing arts/brewery scene (Marz Brewing, Ramova Theater). Adjacent to Chinatown
+    (Armour Square). Lower density and more affordable than North Side equivalents.
+  caveats: History of racial exclusion in the neighborhood remains in living memory; documented
+    incidents into the 2010s. Vibe is shifting fast — what's true this year may not be in
+    two years. Less walkable than appears on a map; commercial nodes are spread out.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/culture-the-arts/2023/12/27/what-to-do-in-bridgeport-ramova-theater-marz-restaurants-shops-more
+    date: '2023-12-27'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/2009/11/16/bridgeport-neighborhood-sees-identity-shift
+    date: '2009-11-16'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/02/05/its-always-been-bridgeport-armour-square-doesnt-exist-in-new-map-drawn-by-locals/
+    date: '2025-02-05'
+  draft_status: source-grounded
+UPTOWN:
+  archetype: gentrifying-edge
+  secondary_archetype: diverse-bohemian
+  key_phrases:
+  - 3,300+ housing units added under Ald. Cappleman's three terms
+  - Wilson Ave construction wave (650 apartments in 4 projects, 2022-)
+  - displacement pressure flagged by Voice of the People (50-year-old org)
+  - historically refugee/Native/Black/Latino mix
+  - trending toward 'Lakeview/Lincoln Park' demographically
+  notable_for: Mid-transition neighborhood — historic diversity (Native American hub, refugee
+    resettlement, working-class Black/Latino communities) being actively reshaped by new construction.
+    Music venue + entertainment legacy (Aragon, Riviera, Green Mill) still anchors a distinct
+    identity. Cheaper than Lakeview but with overlapping infrastructure.
+  caveats: Significant block-level variation — Wilson/Broadway core feels different from Sheridan/lakefront,
+    and both feel different from west of Clark. 'Emerging displacement' (DePaul IHS framing)
+    means current pricing may not reflect direction. Some persistent homelessness concentration.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2021/07/06/uptown-displacement-200-years-uic-gayatri-reddy-anna-guevarra/
+    date: '2021-07-06'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/12/05/a-wave-of-construction-is-changing-uptowns-wilson-avenue-here-are-the-4-projects-adding-650-apartments/
+    date: '2022-12-05'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/curious-city/2024/05/23/uptown-was-once-a-vibrant-hub-for-chicagos-native-american-community
+    date: '2024-05-23'
+  draft_status: source-grounded
+BELMONT CRAGIN:
+  archetype: latino-cultural
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - largest Latino population of any Chicago CA (~80%)
+  - fastest-growing Latino population in Illinois
+  - ICE/Border Patrol enforcement actions devastating local commerce (2025)
+  - Belmont/Central commercial spine
+  - Metra Milwaukee District West + bus only
+  notable_for: Chicago's biggest Latino-population CA (volume, not just share). Northwest
+    Side Mexican-American residential anchor; community institutions and bilingual commerce
+    dominant. Schools heavily invested in (recent $44M elementary build).
+  caveats: No L access — Metra + bus only, ~45 min commute to Loop. Recent immigration enforcement
+    has created real economic + community trauma documented through 2026. Non-Latino residents
+    very much a minority.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/food-drink/2025/10/27/belmont-cragin-ice-raids-restaurants-local-latino-owned-businesses
+    date: '2025-10-27'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/08/20/la-placita-a-community-plaza-with-food-carts-and-live-music-is-coming-to-belmont-cragin/
+    date: '2025-08-20'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2019/03/22/belmont-cragin-elementary-school-is-getting-a-new-44-million-state-of-the-art-building/
+    date: '2019-03-22'
+  draft_status: source-grounded
+WEST ELSDON:
+  archetype: transit-bedroom
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - small SW Side residential CA
+  - mixed Polish/Mexican working-class
+  - Pulaski/55th commercial
+  - Orange Line nearby
+  - single-family + bungalow housing
+  notable_for: Quiet residential CA — similar profile to Archer Heights, Garfield Ridge.
+  caveats: Very limited amenities. Family-residential demographic.
+  citations: []
+  draft_status: general-knowledge
+MOUNT GREENWOOD:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - far SW Side, Irish-Catholic, predominantly police/fire/CFD families
+  - politically + culturally conservative by Chicago standards
+  - 111th St commercial corridor
+  - no L access — Metra Rock Island + buses
+  - tight parish identity (St. Christina, St. Cajetan)
+  notable_for: Distinctive Irish-Catholic, public-safety-employee residential enclave — Chicago's
+    most demographically and politically homogeneous surviving CA.
+  caveats: Cultural homogeneity. History of racial flashpoints (2016 incidents). Not a fit
+    for most professional-class single arrivals.
+  citations: []
+  draft_status: general-knowledge
+DUNNING:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - Northwest Side family residential, mixed Polish + Latino
+  - Wright College anchor
+  - Irving Park Rd commercial spine
+  - Blue Line nearby (Cumberland/Harlem stations)
+  - former Dunning Asylum site (now Eli's Cheesecake/residential)
+  notable_for: Quiet residential NW Side with growing Latino population (per WBEZ — 6,000+
+    Latino growth since 2010 across Belmont Cragin/Dunning/Portage Park). Wright College brings
+    some student texture.
+  caveats: Family-residential — limited nightlife. Spread-out commercial footprint. Far from
+    Loop (~30 min to downtown by L).
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/food-drink/2025/12/05/belmont-cragin-restaurants-chicago-immigration-enforcement-chicago-food
+    date: '2025-12-05'
+  draft_status: general-knowledge
+GARFIELD RIDGE:
+  archetype: transit-bedroom
+  secondary_archetype: family-residential
+  key_phrases:
+  - Midway Airport's northwest neighbor
+  - Polish-American historical core, diversifying
+  - Archer Ave commercial spine
+  - Orange Line (Midway-adjacent stations)
+  - single-family residential
+  notable_for: Midway-airport-area residential — similar profile to Clearing but with more
+    Polish heritage. Orange Line gives faster Loop access than the SW Side norm.
+  caveats: Airport noise. Limited culture/nightlife. Family-residential character.
+  citations: []
+  draft_status: general-knowledge
+WEST LAWN:
+  archetype: transit-bedroom
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - SW Side residential
+  - majority-Mexican now, historic Polish base
+  - Marquette Park west edge
+  - limited L access
+  - single-family residential
+  notable_for: Working-class Mexican-American SW Side residential CA — similar profile to
+    Gage Park.
+  caveats: Limited transit, limited amenities. Family-residential.
+  citations: []
+  draft_status: general-knowledge
+LINCOLN PARK:
+  archetype: established-lakefront
+  secondary_archetype: family-residential
+  key_phrases:
+  - DePaul University anchor; Lincoln Park Zoo + park
+  - high renter + high home-owner mix; expensive for both
+  - Halsted/Lincoln/Armitage commercial spine
+  - stable demographics, low turnover by Chicago standards
+  - Brown + Red Line CTA coverage
+  notable_for: One of the most established, amenity-rich, and consistently expensive North
+    Side neighborhoods. Significant park access (Lincoln Park itself, lakefront, conservatory),
+    strong commercial corridors, and the highest concentration of professional-class adults
+    in Chicago by ACS measure.
+  caveats: Premium pricing across rental and ownership; cost_headroom score will be low. DePaul
+    presence means a student footprint in some pockets. The neighborhood's reputation skews
+    older and more family-oriented than the actual demographic data — verify against current
+    resident impressions if a particular block matters.
+  citations:
+  - tier: 1
+    outlet: Marginal Revolution
+    url: TODO — Tyler Cowen has written about Lincoln Park
+    date: TODO
+  - tier: 2
+    outlet: Chicago Reader
+    url: TODO
+    date: TODO
+  draft_status: needs-citation-verification
+GAGE PARK:
+  archetype: latino-cultural
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - majority-Mexican residential SW Side
+  - 63rd Street commercial corridor
+  - Gage Park (the park) + Marquette Park adjacency
+  - Orange/Pulaski bus access
+  - low rent + low amenity profile
+  notable_for: Solidly working-class Mexican-American residential neighborhood. Limited commercial
+    density beyond 63rd Street, but tight-knit community institutions and affordable housing
+    stock.
+  caveats: Limited transit (no L stop within CA boundary). Crime rate near the safety filter
+    — survived but with little headroom. Few professional-class amenities.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/category/bridgeport-chinatown-mckinley-park/gage-park-brighton-park/
+    date: ongoing-category
+  draft_status: general-knowledge
+MONTCLARE:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - tiny NW Side CA at the city edge (Harlem Avenue border)
+  - mixed Polish/Italian/Latino working/middle class
+  - single-family + bungalow housing dominant
+  - Metra Milwaukee District West
+  - essentially suburban in feel
+  notable_for: Small, quiet city-edge residential CA — suburban feel within Chicago city limits.
+  caveats: Very limited amenities; suburban transit reliance. Not a typical young-professional
+    destination.
+  citations: []
+  draft_status: general-knowledge
+MCKINLEY PARK:
+  archetype: gentrifying-edge
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - majority-Mexican residential SW Side with active early-stage gentrification
+  - McKinley Park (the park) anchor
+  - Orange Line spine (35th/Archer station)
+  - industrial-residential edge along the canal
+  - lower-cost cousin to Bridgeport, similar trajectory
+  notable_for: Early-stage version of what Bridgeport became — Mexican working-class core
+    with creeping arts/food/brewery presence. The park itself (McKinley Park) is one of the
+    largest South Side green spaces. Orange Line gives faster Loop access than most South
+    Side CAs.
+  caveats: Earlier in the gentrification cycle than Bridgeport — fewer amenities now but rents
+    shifting up. Industrial-zoning conflicts (canal corridor) ongoing. Light commercial density.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/category/bridgeport-chinatown-mckinley-park/
+    date: ongoing-category
+  draft_status: general-knowledge
+AVONDALE:
+  archetype: gentrifying-edge
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - historically Polish + Latino enclave, mid-active gentrification
+  - Time Out 'coolest neighborhoods in the world' (2022)
+  - Kuma's Corner, DMen Tap, Hot Doug's destinations
+  - 30% median-income growth past decade; 15% Latino-resident decline (60618)
+  - covered by Northwest Side Housing Preservation Ordinance
+  notable_for: Active gentrification frontier — Logan Square's overflow. Heavy-metal and horror-themed
+    business identity (Kuma's, DMen Tap) gives a real subcultural texture rare in still-affordable
+    Chicago neighborhoods. Puerto Rican Arts Alliance and other community institutions still
+    anchor Latino cultural presence.
+  caveats: Affordability is closing fast. Same displacement-vs-arrival friction as Logan Square
+    but earlier in the cycle. Quieter than Logan Square at street level despite the press.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/10/13/avondale-is-one-of-the-coolest-neighborhoods-in-the-world-according-to-new-poll/
+    date: '2022-10-13'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2019/05/02/as-avondales-gentrification-heats-up-some-residents-want-more-control-this-isnt-logan-or-wicker-park/
+    date: '2019-05-02'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/stories/logan-square-pilsen-and-avondale-is-gentrification-always-a-bad-thing/a049117c-7d01-4ba2-be06-672d2c406bef
+    date: ongoing
+  draft_status: source-grounded
+HYDE PARK:
+  archetype: university-adjacent
+  secondary_archetype: diverse-bohemian
+  key_phrases:
+  - University of Chicago anchor — shapes commerce, culture, housing market
+  - racially + economically integrated by South Side standards
+  - Obama/Preckwinkle political pedigree, Nobel laureate cluster
+  - post-urban-renewal landscape (controversial 1950s-60s 'slum clearance')
+  - 'Metra Electric + #2/6 buses (no L access — Loop ~25 min by train)'
+  notable_for: South Side cultural and intellectual hub — bookstores, jazz fest, Promontory
+    Point lakefront, dense academic/professional population. More diverse and integrated than
+    most CAs at any latitude. Cheaper than comparable North Side neighborhoods.
+  caveats: Isolated from rest of city — no L, ~25 min Metra to Loop, limited late-night transit.
+    UChicago's footprint can feel dominating; tensions with surrounding (poorer) South Side
+    CAs are real and shape local politics. Smaller dating pool / social scene outside UChicago
+    grad community.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/02/05/hyde-park-swallows-up-surrounding-south-side-neighborhoods-in-new-survey/
+    date: '2025-02-05'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/02/15/uchicago-students-nearby-residents-demand-university-give-1-billion-in-reparations-to-south-side-neighborhoods/
+    date: '2022-02-15'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2019/03/29/for-toni-preckwinkle-hyde-park-will-always-be-home/
+    date: '2019-03-29'
+  draft_status: source-grounded
+WEST TOWN:
+  archetype: young-prof-nightlife
+  secondary_archetype: industrial-cool
+  key_phrases:
+  - contains Wicker Park, Bucktown, Ukrainian Village (locally-named subareas)
+  - Milwaukee/Chicago/Damen retail spine; Myopic, Volumes, Quimby's anchor indie books
+  - workers'-cottage housing stock, Rainbo Club, Robey Hotel
+  - fully gentrified — early-2000s arts wave displaced by current professional class
+  - Blue Line spine
+  notable_for: Dense walkable commercial across Milwaukee/Chicago/Damen with one of the strongest
+    concentrations of independent retail in Chicago. Already-completed gentrification — the
+    'cool' moved here, then moved on to Logan/Avondale, leaving an established professional/creative
+    base.
+  caveats: Less raw cool than 2005; rents now comparable to Lincoln Park in pockets. Bucktown/Wicker
+    Park/Ukrainian Village are locally distinct sub-areas — block-level vibe varies. Wicker
+    Park-Bucktown border debated locally.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/wicker-park-bucktown-west-town/
+    date: ongoing-category
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/02/05/wicker-park-bucktown-border-largely-follows-north-avenue-neighbors-say-in-new-survey/
+    date: '2025-02-05'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/03/16/doorways-of-chicago-launches-wicker-park-walking-tour-highlighting-workers-cottages-and-neighborhood-landmarks/
+    date: '2022-03-16'
+  draft_status: source-grounded
+HERMOSA:
+  archetype: latino-cultural
+  secondary_archetype: gentrifying-edge
+  key_phrases:
+  - majority-Latino, between Logan Square and Belmont Cragin
+  - small CA — feels like a sub-area of Logan Square
+  - Blue Line spine (Logan Sq/Belmont stations on borders)
+  - early gentrification pressure spilling from Logan Square
+  - ICE enforcement impact same as Belmont Cragin
+  notable_for: Effectively a continuation of Logan Square's working-class Latino core, with
+    Blue Line + lower rents than Logan proper. Early in the gentrification curve.
+  caveats: Less of an independent identity than neighbors. Same immigration-enforcement impact
+    as Belmont Cragin. Limited commercial nodes.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/category/belmont-cragin-hermosa/
+    date: ongoing-category
+  draft_status: general-knowledge
+NORTH PARK:
+  archetype: family-residential
+  secondary_archetype: university-adjacent
+  key_phrases:
+  - far North Side, North Park University anchor
+  - Northeastern Illinois University nearby
+  - diverse residential — Korean, Filipino, Eastern European, Black
+  - North Branch of the Chicago River runs through
+  - Brown Line (Kimball terminus) at SE edge
+  notable_for: Quiet, diverse, university-adjacent residential. North Park College + NEIU
+    bring some student presence; rest is solidly family-residential.
+  caveats: Far north + Brown Line terminus = long commute. Limited nightlife. Spread-out commercial
+    nodes.
+  citations: []
+  draft_status: general-knowledge
+ARMOUR SQUARE:
+  archetype: asian-cultural
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - Chicago Chinatown core (Cermak/Wentworth) since 1912
+  - 72% Asian-American (2010 Census)
+  - 20,000+ Chinese residents, 400+ businesses
+  - growing while other US Chinatowns shrink
+  - Ping Tom Park lakefront equivalent for Chinese-American community
+  notable_for: Chicago's Chinatown — one of the few US Chinatowns still growing. Family-association
+    civic structure, dense restaurant + grocery + service corridor on Wentworth/Cermak. Sox-35th-adjacent.
+    Strong cultural identity + multigenerational continuity rare in Chicago neighborhoods
+    generally.
+  caveats: 'Predominantly Chinese-American — non-Asian residents are a small minority and
+    the cultural texture may feel adjacent rather than embedded. Apartment market notoriously
+    hard to access online (WBEZ: ''invisible in the apartment market'') — needs Chinese-language
+    listings + in-person inquiry. Limited late-night nightlife.'
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/culture-the-arts/2022/02/08/the-history-of-chicagos-thriving-chinatown-neighborhood
+    date: '2022-02-08'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/curious-city/2017/10/29/why-chicagos-chinatown-is-practically-invisible-on-apartment-rental-sites
+    date: '2017-10-29'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/chicago/2019/05/22/chinatowns-getting-a-massive-new-neighbor-what-happens-next
+    date: '2019-05-22'
+  draft_status: source-grounded
+SOUTH LAWNDALE:
+  archetype: latino-cultural
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - Little Village — 'Mexican Capital of the Midwest'
+  - '26th Street: 2nd-highest tax-generating commercial corridor citywide (after Mag Mile)'
+  - 81% Latino (latest Census)
+  - Little Village arch (1990, city landmark)
+  - Pink Line + Cermak/Kedzie
+  notable_for: Anchor of Mexican-American Chicago — 26th Street commercial corridor is the
+    highest-grossing Latino retail district in the US. Strong civic + cultural infrastructure
+    (parade, churches, interfaith organizing). Distinct from Pilsen — less gentrified, more
+    multigenerational Mexican-immigrant character.
+  caveats: Immigration-enforcement actions (Operation Midway Blitz, 2025) have measurably
+    depressed 26th St commerce. Non-Latino professional presence is small; arriving means
+    standing out. Border with North Lawndale carries persistent crime concerns at the western
+    edge.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/01/26/little-village-arch-gateway-to-the-mexican-capital-of-the-midwest-is-now-an-official-city-landmark/
+    date: '2022-01-26'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/11/18/little-villages-26th-street-slowly-comes-back-to-life-after-months-of-immigration-raids/
+    date: '2025-11-18'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/stories/south-lawndale-aka-little-village/08cd0f0a-248a-464d-84ec-75995bc6bec4
+    date: ongoing
+  draft_status: source-grounded
+ARCHER HEIGHTS:
+  archetype: transit-bedroom
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - small SW Side residential CA, mixed Polish/Mexican
+  - Archer Ave commercial spine
+  - low-density single-family + bungalow housing stock
+  - Orange Line (Pulaski station)
+  - industrial buffer to north
+  notable_for: Quiet, primarily residential bungalow-belt CA adjacent to Brighton Park. Strong
+    Orange Line connection to Loop.
+  caveats: Very limited commercial/social density. Family-residential demographic. Not a destination
+    neighborhood.
+  citations: []
+  draft_status: general-knowledge
+LOWER WEST SIDE:
+  archetype: latino-cultural
+  secondary_archetype: gentrifying-edge
+  key_phrases:
+  - Pilsen — Mexican-American cultural anchor
+  - mural tradition rooted in 1920s Mexican muralist movement
+  - 10,300 Hispanic residents lost 2000-2010 to gentrification pressure
+  - Pilsen Housing Cooperative resisting displacement
+  - Pink Line + 18th St commercial spine
+  notable_for: Chicago's most visible Mexican-American neighborhood and one of the strongest
+    mural traditions in the US — civic + artistic identity are inseparable. National Museum
+    of Mexican Art anchor. Restaurant scene from taquerias to upscale Mexican (Honey Butter,
+    etc.). Cheaper than near-Loop neighborhoods despite the proximity.
+  caveats: Active displacement of long-time Latino residents is THE defining tension. Arriving
+    as a non-Latino professional is participating in that pressure regardless of intent. Limited
+    late-night transit. Block-level safety varies; some pockets bordering Heart of Chicago
+    and Little Village have higher incident rates.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2022/05/13/pilsens-first-mural-was-destroyed-a-new-massive-mural-pays-tribute-to-it-and-urges-latinx-residents-to-fight-to-stay/
+    date: '2022-05-13'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2024/10/21/lionel-bottari-pilsen-is-changing-can-a-mom-and-pop-landlord-make-a-difference/
+    date: '2024-10-21'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/curious-city/2014/07/22/swept-from-their-homes-chicagos-latinos-built-new-community
+    date: '2014-07-22'
+  draft_status: source-grounded
+EAST SIDE:
+  archetype: industrial-cool
+  secondary_archetype: latino-cultural
+  key_phrases:
+  - far Southeast city corner (Indiana state line)
+  - post-steel-mill industrial heritage
+  - majority-Latino, smaller working-class Black + white populations
+  - Calumet River + Wolf Lake adjacency
+  - South Shore Line Metra at the edge
+  notable_for: Most geographically isolated surviving CA — post-industrial East Side has unusual
+    landscape (Wolf Lake, industrial relics) and the cheapest housing in the survivor list.
+    Tight-knit Mexican-American community.
+  caveats: Very isolated transit-wise — Loop is ~50 min by Metra. Industrial-blight legacy
+    in places. Few professional amenities. Effectively a different city than the rest of Chicago.
+  citations: []
+  draft_status: general-knowledge
+OHARE:
+  archetype: insufficient-data
+  secondary_archetype: null
+  key_phrases:
+  - the airport CA — predominantly non-residential
+  - ~15k residents, mostly airport/cargo workforce housing
+  - Blue Line terminus (O'Hare station)
+  - industrial + airport-adjacent land use dominates
+  - small residential pocket near Mannheim Rd
+  notable_for: Not a meaningful residential option — the CA is mostly the airport itself.
+    Small workforce-adjacent residential pocket exists but has no neighborhood character in
+    the conventional sense.
+  caveats: RECOMMEND EXCLUDING FROM SHORTLIST. The metrics that float O'Hare up (low rent,
+    high safety against tiny denominator) are artifacts of the airport CA structure, not properties
+    of a real residential neighborhood.
+  citations: []
+  draft_status: exclude-recommendation
+NEAR SOUTH SIDE:
+  archetype: industrial-cool
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - South Loop + Prairie Avenue + Museum Campus + McCormick Place
+  - Southbridge mixed-income development (former Harold Ickes Homes site)
+  - active high-rise residential construction
+  - data-center expansion debate (Digital Realty)
+  - Red/Green/Orange lines; Roosevelt and Cermak stops
+  notable_for: 'South Loop residential boom — high-rise apartments, mixed-income redevelopment
+    of former public housing (Southbridge: ultimately 850+ units bridging Chinatown/Bronzeville/South
+    Loop). Museum Campus, Soldier Field, Northerly Island walkable. Cheaper than Near North
+    Side, similar Loop access.'
+  caveats: Feels less established than mature residential neighborhoods — still under construction
+    in many corridors. Mix of old public housing legacy + new luxury can produce stark block-to-block
+    contrasts. Limited 'neighborhood' density of indie commerce compared to Wicker Park or
+    Logan Square.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2026/04/28/southbridge-development-breaks-ground-on-next-phase-of-mixed-income-housing/
+    date: '2026-04-28'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/05/14/former-public-housing-site-could-become-80-mixed-income-apartments-on-near-south-side/
+    date: '2025-05-14'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2023/09/13/south-loop-neighbors-want-to-block-data-center-expansion-near-mccormick-place/
+    date: '2023-09-13'
+  draft_status: source-grounded
+ASHBURN:
+  archetype: family-residential
+  secondary_archetype: transit-bedroom
+  key_phrases:
+  - majority-Black middle-class residential SW Side
+  - Midway-adjacent (87th/Pulaski commercial)
+  - bungalow + ranch housing stock
+  - Stevenson Park anchor
+  - Orange Line + 79th St bus
+  notable_for: Quiet, stable Black middle-class residential CA — one of the demographically
+    integrated South Side neighborhoods with relatively low turnover.
+  caveats: Limited professional-class amenities. Far from Loop. Family-residential demographic.
+  citations: []
+  draft_status: general-knowledge
+BEVERLY:
+  archetype: family-residential
+  secondary_archetype: established-mainstreet
+  key_phrases:
+  - South Side Irish Catholic identity (largest US St. Pat's parade outside Dublin)
+  - intentionally integrated since 1970s (Chicago's notable success story)
+  - Longwood Drive 'ridge' mansions (Tudor, Italianate, Queen Anne, Spanish Colonial)
+  - parishes still anchor local identity ('I'm Christ the King')
+  - Metra Rock Island — Loop in 25 min
+  notable_for: Far South Side anomaly — racially integrated by design (active 1970s-onward
+    effort), Irish Catholic parish-based identity, architecturally exceptional housing stock
+    on Longwood ridge. Beverly Arts Center, Beverly Records anchor a small but real main-street
+    commercial life. Top safety score in our data.
+  caveats: Far south — Metra only practical transit. 'Parish' culture is warm if you're in
+    it, opaque if you're not. Strongly tilted toward families with kids; newly-single arrival
+    would be a demographic outlier.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/curious-city/2014/03/26/in-chicagos-beverly-neighborhood-integration-is-no-accident
+    date: '2014-03-26'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/02/05/beverly-is-bigger-than-you-think-but-its-more-about-what-parish-youre-from-neighbors-say/
+    date: '2025-02-05'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2024/03/15/for-40-years-the-south-side-irish-song-has-been-a-neighborhood-anthem-meet-the-man-behind-it/
+    date: '2024-03-15'
+  draft_status: source-grounded
+MORGAN PARK:
+  archetype: family-residential
+  secondary_archetype: diverse-bohemian
+  key_phrases:
+  - far SW Side, Beverly's southern neighbor
+  - racially integrated (parallel to Beverly's intentional integration)
+  - Vincennes Avenue ridge architecture
+  - Metra Rock Island
+  - parish-identity South Side culture (per Beverly piece)
+  notable_for: Beverly's quieter, more affordable sibling — same Rock Island Metra line, same
+    parish-identity culture, similar architecturally distinctive housing on the Blue Island
+    Ridge.
+  caveats: Far south — Metra only practical transit. Family-residential. Smaller commercial
+    scene than Beverly.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/02/05/beverly-is-bigger-than-you-think-but-its-more-about-what-parish-youre-from-neighbors-say/
+    date: '2025-02-05'
+  draft_status: general-knowledge
+NEAR WEST SIDE:
+  archetype: industrial-cool
+  secondary_archetype: young-prof-nightlife
+  key_phrases:
+  - 'Fulton Market: former meatpacking district → restaurant + tech destination'
+  - luxury residential boom (Trader Joe's mixed-use, 29-story apartment towers)
+  - national chains encroaching on indie restaurant identity (2025-26 inflection)
+  - United Center, Greektown, UIC campus sub-areas
+  - Green/Pink Line + many bus routes
+  notable_for: 'West Loop / Fulton Market is Chicago''s defining 2010s-2020s redevelopment
+    story — warehouse-to-loft + restaurant boom on Randolph St ''Restaurant Row'' + Fulton
+    Market. Heavy professional concentration, tech offices (Google, McDonald''s HQ), high-end
+    food. Distinct subareas: Greektown (UIC-adjacent), UIC campus, Tri-Taylor.'
+  caveats: Premium rents (highest non-lakefront in Chicago). 'Chaining' of Fulton Market post-2024
+    is changing the character that drew people. Daytime workforce dwarfs residential pop (why
+    we relaxed the safety filter here). Limited grocery/everyday retail outside Trader Joe's.
+  citations:
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2026/01/14/how-chains-are-changing-fulton-market-once-the-hot-spot-for-indie-restaurants-retailers/
+    date: '2026-01-14'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/10/15/trader-joes-coming-to-fulton-market/
+    date: '2025-10-15'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2025/10/21/29-story-residential-building-with-retail-pitched-for-vacant-fulton-market-lot/
+    date: '2025-10-21'
+  draft_status: source-grounded
+LOOP:
+  archetype: young-prof-nightlife
+  secondary_archetype: industrial-cool
+  key_phrases:
+  - downtown business district transitioning into a residential neighborhood
+  - ~30k housing units (2022) + 1,700+ approved 2024 + LaSalle conversion adds 1k more
+  - office-to-residential conversion wave post-pandemic
+  - studio rents ~$2k; LaSalle initiative units ~$1k (affordable component)
+  - every CTA line converges; Metra hub
+  notable_for: Now actually plausible as a residential neighborhood — pandemic-era office
+    vacancies driving aggressive conversion to apartments + city push to make downtown 'a
+    full-fledged neighborhood vibrant outside of 9-5.' Transit unmatchable; walkability score
+    literally maxed in our data. Cultural/civic infrastructure (museums, theater, library)
+    dense.
+  caveats: Still feels commercial-first; 'is downtown a neighborhood?' is an open argument.
+    Grocery options improving but limited (Mariano's, Trader Joe's, Whole Foods). Daytime
+    vs evening crowd-shift can feel jarring. Recovery from pandemic-era foot-traffic dip ongoing.
+  citations:
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/real-estate-development/2025/04/25/office-residential-conversions-apartments-housing-downtown
+    date: '2025-04-25'
+  - tier: 2
+    outlet: Block Club Chicago
+    url: https://blockclubchicago.org/2024/10/30/1700-apartments-approved-for-downtown-west-loop/
+    date: '2024-10-30'
+  - tier: 2
+    outlet: WBEZ
+    url: https://www.wbez.org/real-estate-development/2025/03/28/developer-campari-r2-historic-loop-office-building-monroe-housing
+    date: '2025-03-28'
+  draft_status: source-grounded
