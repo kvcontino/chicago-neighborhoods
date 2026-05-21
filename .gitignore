@@ -25,6 +25,9 @@ __pycache__/
 *.pyo
 .pytest_cache/
 
+# --- osmnx cache (127MB of Overpass JSON responses; regenerable) ---
+cache/
+
 # --- QGIS scratch ---
 *.qgz~
 *.qgs~
