@@ -82,20 +82,17 @@ COMMERCIAL_CAS = {
 ALWAYS_EXCLUDE = {"OHARE"}
 
 # Soft-score weights (must sum to 1.0).
-# 5-axis composite — adds age_match (% adults 25-39 in CA, normalized) as a
-# user-profile axis. Weights are derived from a "profile-matched" framing:
-#   - quality-of-living axes (walk, transit) get higher weight
-#   - safety still meaningful as headroom above the hard filter
-#   - cost de-emphasized (the $135k salary makes it less of a constraint)
-#   - age_match treated as peer to safety in importance
-# Original 4-axis ratios (walk 0.30 / transit 0.30 / safety 0.25 / cost 0.15)
-# scaled to 0.80 total to make room for age_match at 0.20.
+# 6-axis composite — adds quality_score (housing-stock quality proxy:
+# equal-thirds of vintage / bedroom mix / violation rate) at 0.20 weight.
+# Original 5-axis ratios (walk 0.24 / transit 0.24 / safety 0.20 / cost 0.12 / age 0.20)
+# scaled to 0.80 total to make room for quality at 0.20.
 WEIGHTS = {
-    "walk_score_proxy":    0.24,
-    "transit_headroom":    0.24,
-    "safety_headroom":     0.20,
-    "cost_headroom":       0.12,
-    "age_match":           0.20,
+    "walk_score_proxy":    0.19,
+    "transit_headroom":    0.19,
+    "safety_headroom":     0.16,
+    "cost_headroom":       0.10,
+    "age_match":           0.16,
+    "quality_score":       0.20,
 }
 
 
@@ -118,7 +115,8 @@ def load_all():
     acs["area_num_1"] = acs["area_num_1"].astype(int)
     acs = acs[["area_num_1", "population", "housing_units", "median_age",
                "median_hh_income", "pct_25_39", "pct_never_married_15plus",
-               "pct_bachelors_plus", "pct_wfh"]]
+               "pct_bachelors_plus", "pct_wfh",
+               "pct_built_2000_plus", "pct_rentals_2br_plus"]]
 
     rent = gpd.read_file(ROOT / "data/processed/rent_by_ca.gpkg")
     rent["area_num_1"] = rent["area_num_1"].astype(int)
@@ -244,6 +242,24 @@ def compute_soft_scores(survivors: pd.DataFrame) -> pd.DataFrame:
     # age_match: higher % adults 25-39 → higher score (within survivors)
     s["age_match"] = minmax(s["pct_25_39"])
 
+    # Quality components — equal thirds, each min-max normalized within survivors.
+    # Vintage: % built since 2000 (HVAC/finish quality proxy).
+    # Bedroom mix: % of rentals that are 2BR+ (WFH-friendly, cat-friendly).
+    # Conditions: inverted violations/1k housing units (lower = better stock).
+    s["vintage_norm"] = minmax(s["pct_built_2000_plus"])
+    s["bedroom_norm"] = minmax(s["pct_rentals_2br_plus"])
+    s["cond_norm"]    = minmax(-s["violations_per_1k_units"])
+    s["quality_raw"]  = (s["vintage_norm"] + s["bedroom_norm"] + s["cond_norm"]) / 3
+    # Re-normalize so the quality axis spans 0-100 within survivors and
+    # contributes comparably to other axes in the weighted sum.
+    s["quality_score"] = minmax(s["quality_raw"])
+
+    # Derived display column: effective_rent reflects the rent you'd be
+    # paying after the quality adjustment. Not used in scoring directly
+    # (quality is its own axis), but useful in the output CSV.
+    s["quality_multiplier"] = 1.20 - 0.40 * s["quality_score"] / 100
+    s["effective_rent"]     = s["median_rent_current"] * s["quality_multiplier"]
+
     # composite
     s["composite_score"] = sum(s[k] * w for k, w in WEIGHTS.items())
     return s
@@ -284,8 +300,10 @@ def main():
 
     rank_cols = ["area_num_1", "community", "composite_score",
                  "walk_score_proxy", "transit_headroom", "safety_headroom",
-                 "cost_headroom", "age_match",
-                 "median_rent_current", "violent_per_1k", "rail_count", "bus_per_sqmi",
+                 "cost_headroom", "age_match", "quality_score",
+                 "median_rent_current", "effective_rent",
+                 "violent_per_1k", "rail_count", "bus_per_sqmi",
+                 "pct_built_2000_plus", "pct_rentals_2br_plus",
                  "population", "median_hh_income", "pct_25_39", "pct_never_married_15plus",
                  "pct_bachelors_plus", "pct_wfh"]
     shortlist = survivors[rank_cols].sort_values("composite_score", ascending=False)
@@ -297,14 +315,14 @@ def main():
     print(f"     → {drop_log_path}")
     print(f"     → {shortlist_path}")
 
-    print(f"\n[08] Ranked survivors by composite score (5-axis):")
-    print(f"     {'rank':>4} {'CA':<22} {'score':>6} {'walk':>5} {'tran':>5} {'safe':>5} {'cost':>5} {'age':>5} {'rent':>7}")
+    print(f"\n[08] Ranked survivors by composite score (6-axis):")
+    print(f"     {'rank':>4} {'CA':<22} {'score':>6} {'walk':>5} {'tran':>5} {'safe':>5} {'cost':>5} {'age':>5} {'qual':>5} {'eff_rent':>9}")
     for i, (_, r) in enumerate(shortlist.iterrows(), 1):
         print(f"     {i:>4} {r['community']:<22} {r['composite_score']:>6.1f} "
               f"{r['walk_score_proxy']:>5.1f} {r['transit_headroom']:>5.1f} "
               f"{r['safety_headroom']:>5.1f} {r['cost_headroom']:>5.1f} "
-              f"{r['age_match']:>5.1f} "
-              f"${r['median_rent_current']:>6.0f}")
+              f"{r['age_match']:>5.1f} {r['quality_score']:>5.1f} "
+              f"${r['effective_rent']:>7.0f}")
 
 
 if __name__ == "__main__":

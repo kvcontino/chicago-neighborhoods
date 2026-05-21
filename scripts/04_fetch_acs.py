@@ -75,6 +75,13 @@ ACS_VARS = [
     "B08006_017E",                                       # worked from home
     # Median age (single variable)
     "B01002_001E",
+    # B25034 - year structure built (all tenures)
+    # _001 total / _002 2014+ / _003 2010-13 / _004 2000-09
+    "B25034_001E", "B25034_002E", "B25034_003E", "B25034_004E",
+    # B25042 - TENURE BY BEDROOMS (renter side: _009 total / _010 studio / _011 1BR / _012 2BR / _013 3BR / _014 4BR / _015 5BR+)
+    "B25042_009E",
+    "B25042_010E", "B25042_011E",                        # studios + 1BR (small units)
+    "B25042_012E", "B25042_013E", "B25042_014E", "B25042_015E",  # 2BR+ (WFH-friendly)
 ]
 
 COUNT_VARS = [v for v in ACS_VARS if v not in
@@ -188,6 +195,18 @@ def main():
     ) / agg["B15003_001E"]
     agg["pct_wfh"] = 100 * agg["B08006_017E"] / agg["B08006_001E"]
 
+    # B25034: % housing units built since 2000 (HVAC/finish quality proxy)
+    agg["pct_built_2000_plus"] = 100 * (
+        agg["B25034_002E"] + agg["B25034_003E"] + agg["B25034_004E"]
+    ) / agg["B25034_001E"]
+
+    # B25042 renter-side: % of rental units with 2BR+ (WFH-friendly,
+    # room for office + two cats per user's stated needs).
+    agg["pct_rentals_2br_plus"] = 100 * (
+        agg["B25042_012E"] + agg["B25042_013E"]
+        + agg["B25042_014E"] + agg["B25042_015E"]
+    ) / agg["B25042_009E"]
+
     # Rename for legibility
     agg = agg.rename(columns={
         "B01001_001E": "population",
@@ -201,6 +220,7 @@ def main():
         "area_num_1", "population", "housing_units", "median_age",
         "median_hh_income", "median_gross_rent_acs",
         "pct_25_39", "pct_never_married_15plus", "pct_bachelors_plus", "pct_wfh",
+        "pct_built_2000_plus", "pct_rentals_2br_plus",
     ]
     final = agg[out_cols].copy()
 
