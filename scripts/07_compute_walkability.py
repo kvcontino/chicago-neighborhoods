@@ -2,7 +2,7 @@
 """Compute walkability proxy per Community Area.
 
 Two components, each min-max normalized 0-100 across CAs:
-  - amenity_density: bars/restaurants/cafes/gyms per sq mi  (from script 06)
+  - amenity_density (weighted by bucket, see below)
   - intersection_density: street-network nodes with degree ≥ 3 per sq mi
                           (from OSM walkable street network via osmnx)
 
@@ -11,19 +11,27 @@ mean penalizes imbalance: a CA needs BOTH walkable street density AND
 nearby destinations to score high. (Arithmetic mean would let one
 compensate for the other, which understates real walkability friction.)
 
-This pair correlates ~0.75 with Walk Score on US cities — better than
-either component alone.
+Amenity bucket weighting (user-profile specific):
+  - social bucket (restaurant, cafe, fitness_centre) × 1.0
+  - drinker bucket (bar, pub, nightclub, fast_food) × DRINKER_WEIGHT (default 0.3)
+  - essential bucket (grocery, pharmacy, healthcare, vet) — broken out as
+    its OWN density score (essential_services_density), so the user has a
+    "can I live here without owning a car" axis distinct from walkability
+
+Set DRINKER_WEIGHT = 1.0 for a drinker profile (or just delete the weighting).
 
 Inputs:
   data/processed/community_areas.gpkg     (from 01)
-  data/processed/osm_amenities.gpkg       (from 06)
+  data/processed/osm_amenities.gpkg       (from 06, with bucket column)
 
 Output:
   data/processed/walkability_by_ca.gpkg
     Columns: area_num_1, community, area_sqmi,
-             amenity_count, amenity_density, amenity_norm,
-             intersection_count, intersection_density, intersection_norm,
-             walk_score_proxy (0-100)
+             social_count, drinker_count, essential_count,
+             amenity_weighted, amenity_density,
+             intersection_count, intersection_density,
+             amenity_norm, intersection_norm, walk_score_proxy (0-100),
+             essential_services_density, essential_services_norm
 
 Cache:
   data/raw/osm_walkable_network.graphml   — the osmnx-pulled street network
@@ -43,6 +51,10 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 ROOT = Path(__file__).resolve().parent.parent
 PROJECTED_CRS = "EPSG:3435"
 SQ_FT_PER_SQ_MI = 27_878_400
+
+# Profile-specific amenity weighting. User doesn't drink → bars/pubs/nightclubs
+# count for less in the walkability calculation. Set to 1.0 to disable.
+DRINKER_WEIGHT = 0.3
 
 
 def fetch_street_network(boundary_gdf: gpd.GeoDataFrame):
@@ -74,14 +86,31 @@ def main():
     cas["area_num_1"] = cas["area_num_1"].astype(int)
     cas["area_sqmi"] = cas.area / SQ_FT_PER_SQ_MI
 
-    # --- 1. Amenity density (from OSM amenity points) ---
+    # --- 1. Amenity density (by bucket, weighted) ---
     amen = gpd.read_file(ROOT / "data/processed/osm_amenities.gpkg").to_crs(PROJECTED_CRS)
     joined_amen = gpd.sjoin(
-        amen[["osm_id", "category", "geometry"]],
+        amen[["osm_id", "category", "bucket", "geometry"]],
         cas[["area_num_1", "geometry"]],
         how="inner", predicate="within",
     )
-    amen_counts = joined_amen.groupby("area_num_1").size().rename("amenity_count").reset_index()
+    # Counts per CA per bucket
+    bucket_counts = (
+        joined_amen.groupby(["area_num_1", "bucket"]).size().unstack(fill_value=0).reset_index()
+    )
+    # Ensure all bucket columns exist (a CA could have 0 of one bucket)
+    for b in ("social", "drinker", "essential", "other"):
+        if b not in bucket_counts.columns:
+            bucket_counts[b] = 0
+    bucket_counts = bucket_counts.rename(columns={
+        "social": "social_count", "drinker": "drinker_count",
+        "essential": "essential_count", "other": "other_count",
+    })
+    # Weighted amenity = social × 1.0 + drinker × DRINKER_WEIGHT
+    # (essential is handled as its own axis below; "other" excluded)
+    bucket_counts["amenity_weighted"] = (
+        bucket_counts["social_count"] * 1.0
+        + bucket_counts["drinker_count"] * DRINKER_WEIGHT
+    )
 
     # --- 2. Intersection density (from osmnx street network) ---
     G = fetch_street_network(cas)
@@ -107,20 +136,27 @@ def main():
     # --- 3. Merge + compute densities + normalize + combine ---
     out = (
         cas[["area_num_1", "community", "area_sqmi", "geometry"]]
-        .merge(amen_counts, on="area_num_1", how="left")
+        .merge(bucket_counts, on="area_num_1", how="left")
         .merge(int_counts, on="area_num_1", how="left")
     )
-    out["amenity_count"] = out["amenity_count"].fillna(0).astype(int)
-    out["intersection_count"] = out["intersection_count"].fillna(0).astype(int)
-    out["amenity_density"] = out["amenity_count"] / out["area_sqmi"]
+    # Fill missing counts with 0
+    for col in ("social_count", "drinker_count", "essential_count",
+                "other_count", "intersection_count"):
+        if col in out.columns:
+            out[col] = out[col].fillna(0).astype(int)
+    out["amenity_weighted"] = out["amenity_weighted"].fillna(0)
+
+    out["amenity_density"]    = out["amenity_weighted"] / out["area_sqmi"]
+    out["essential_services_density"] = out["essential_count"] / out["area_sqmi"]
     out["intersection_density"] = out["intersection_count"] / out["area_sqmi"]
 
     def _minmax(s):
         mn, mx = s.min(), s.max()
         return 100 * (s - mn) / (mx - mn) if mx > mn else 50.0
 
-    out["amenity_norm"] = _minmax(out["amenity_density"])
-    out["intersection_norm"] = _minmax(out["intersection_density"])
+    out["amenity_norm"]            = _minmax(out["amenity_density"])
+    out["intersection_norm"]       = _minmax(out["intersection_density"])
+    out["essential_services_norm"] = _minmax(out["essential_services_density"])
 
     # Geometric mean — penalizes imbalance. Clamp at 0 to avoid sqrt of
     # tiny negatives from float rounding.
@@ -132,18 +168,29 @@ def main():
     out.to_crs("EPSG:4326").to_file(out_path, driver="GPKG", layer="walkability_by_ca")
 
     print(f"[07] Done → {out_path}")
-    print(f"     Amenity density:      {out['amenity_density'].min():>6.1f} - {out['amenity_density'].max():>6.1f} per sq mi")
+    print(f"     Amenity density (weighted, drinker×{DRINKER_WEIGHT}):  "
+          f"{out['amenity_density'].min():>6.1f} - {out['amenity_density'].max():>6.1f} per sq mi")
+    print(f"     Essential services density: "
+          f"{out['essential_services_density'].min():>6.1f} - {out['essential_services_density'].max():>6.1f} per sq mi")
     print(f"     Intersection density: {out['intersection_density'].min():>6.0f} - {out['intersection_density'].max():>6.0f} per sq mi")
     print(f"     walk_score_proxy:     {out['walk_score_proxy'].min():>6.1f} - {out['walk_score_proxy'].max():>6.1f}")
-    top = out.nlargest(5, "walk_score_proxy")[
+    top_walk = out.nlargest(5, "walk_score_proxy")[
         ["community", "amenity_density", "intersection_density", "walk_score_proxy"]
     ]
-    print(f"\n     Top 5 by combined walk_score_proxy:")
-    for _, r in top.iterrows():
+    print(f"\n     Top 5 by walk_score_proxy:")
+    for _, r in top_walk.iterrows():
         print(f"       {r['community']:<22} "
               f"amen {r['amenity_density']:>5.1f}/sqmi · "
               f"int {r['intersection_density']:>4.0f}/sqmi → "
               f"walk {r['walk_score_proxy']:>5.1f}")
+    top_ess = out.nlargest(5, "essential_services_density")[
+        ["community", "essential_count", "essential_services_density"]
+    ]
+    print(f"\n     Top 5 by essential services density:")
+    for _, r in top_ess.iterrows():
+        print(f"       {r['community']:<22} "
+              f"{r['essential_count']:>3} essentials → "
+              f"{r['essential_services_density']:>5.1f}/sqmi")
 
 
 if __name__ == "__main__":

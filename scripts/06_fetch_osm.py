@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 """Fetch Chicago amenities from OpenStreetMap via the Overpass API.
 
-What we pull:
-  - amenity=bar|pub|restaurant|cafe|nightclub|fast_food
-  - leisure=fitness_centre
+What we pull, in three buckets:
+  - "social" — restaurant, cafe (third-place / neighborhood-fabric anchors)
+  - "drinker-coded" — bar, pub, nightclub, fast_food (kept separate so
+    they can be downweighted for non-drinking profiles)
+  - "essential" — pharmacy, hospital, clinic, doctors, veterinary,
+    supermarket (the stay-home practicality stack: groceries, healthcare,
+    pet care)
+  - plus leisure=fitness_centre (kept in social bucket)
 
-These are the third-place + nightlife + food categories that feed the
-walkability density proxy in 07 and the social-scene typology in 09.
+These feed (a) the walkability density proxy in 07, (b) a separate
+essential-services density score, and (c) the qualitative typology
+in 09.
 
 We deliberately do NOT pull the highway network for intersection-density
 walkability. That requires either osmnx or pyrosm (additional deps) and
@@ -38,11 +44,13 @@ OVERPASS = "https://overpass-api.de/api/interpreter"
 BBOX = (41.64, -87.94, 42.03, -87.52)   # (south, west, north, east)
 
 QUERY = f"""
-[out:json][timeout:120];
+[out:json][timeout:180];
 (
-  node["amenity"~"^(bar|pub|restaurant|cafe|nightclub|fast_food)$"]
+  node["amenity"~"^(bar|pub|restaurant|cafe|nightclub|fast_food|pharmacy|hospital|clinic|doctors|veterinary|marketplace)$"]
        ({BBOX[0]},{BBOX[1]},{BBOX[2]},{BBOX[3]});
   node["leisure"="fitness_centre"]
+       ({BBOX[0]},{BBOX[1]},{BBOX[2]},{BBOX[3]});
+  node["shop"="supermarket"]
        ({BBOX[0]},{BBOX[1]},{BBOX[2]},{BBOX[3]});
 );
 out body;
@@ -73,15 +81,31 @@ def main():
     elements = raw.get("elements", [])
     print(f"[06] Parsed {len(elements):,} OSM elements")
 
+    # Three buckets, used downstream in 07 to compute walkability components
+    # separately and to allow profile-specific weighting.
+    SOCIAL    = {"restaurant", "cafe", "fitness_centre"}
+    DRINKER   = {"bar", "pub", "nightclub", "fast_food"}
+    ESSENTIAL = {"pharmacy", "hospital", "clinic", "doctors", "veterinary",
+                 "supermarket", "marketplace"}
+
     records = []
     for el in elements:
         if el.get("type") != "node":
             continue
         tags = el.get("tags") or {}
-        category = tags.get("amenity") or tags.get("leisure") or "unknown"
+        category = tags.get("amenity") or tags.get("leisure") or tags.get("shop") or "unknown"
+        if category in SOCIAL:
+            bucket = "social"
+        elif category in DRINKER:
+            bucket = "drinker"
+        elif category in ESSENTIAL:
+            bucket = "essential"
+        else:
+            bucket = "other"
         records.append({
             "osm_id": el["id"],
             "category": category,
+            "bucket": bucket,
             "name": tags.get("name"),
             "geometry": Point(el["lon"], el["lat"]),
         })
@@ -92,8 +116,12 @@ def main():
 
     print(f"[06] Done → {out_path}")
     print(f"     Total amenities: {len(gdf):,}")
-    cat_counts = gdf["category"].value_counts()
-    for cat, n in cat_counts.items():
+    print(f"     By bucket:")
+    for bucket in ("social", "drinker", "essential", "other"):
+        n = (gdf["bucket"] == bucket).sum()
+        print(f"       {bucket:<10} {n:>5,}")
+    print(f"     By category (top):")
+    for cat, n in gdf["category"].value_counts().items():
         print(f"       {cat:<18} {n:>5,}")
 
 

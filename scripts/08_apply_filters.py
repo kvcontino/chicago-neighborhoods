@@ -124,7 +124,9 @@ def load_all():
 
     walk = gpd.read_file(ROOT / "data/processed/walkability_by_ca.gpkg")
     walk["area_num_1"] = walk["area_num_1"].astype(int)
-    walk = walk[["area_num_1", "amenity_count", "amenity_density", "walk_score_proxy"]]
+    walk = walk[["area_num_1", "amenity_density", "walk_score_proxy",
+                 "essential_services_density", "essential_services_norm",
+                 "social_count", "drinker_count", "essential_count"]]
 
     # Transit: spatial-join points into CAs
     rail = gpd.read_file(ROOT / "data/processed/cta_rail_stops.gpkg").to_crs(PROJECTED_CRS)
@@ -138,6 +140,23 @@ def load_all():
         .groupby("area_num_1").size().rename("bus_count").reset_index()
     )
 
+    # Sidecar layers — not in composite scoring, just exposed for visibility
+    noise_path = ROOT / "data/processed/noise_by_ca.gpkg"
+    if noise_path.exists():
+        noise = gpd.read_file(noise_path)[["area_num_1", "noise_exposure_pct", "quiet_score"]]
+        noise["area_num_1"] = noise["area_num_1"].astype(int)
+    else:
+        noise = pd.DataFrame({"area_num_1": [], "noise_exposure_pct": [], "quiet_score": []})
+
+    vel_path = ROOT / "data/processed/gentrification_velocity_by_ca.gpkg"
+    if vel_path.exists():
+        vel = gpd.read_file(vel_path)[["area_num_1", "velocity_score",
+                                         "delta_income_pct", "delta_rent_pct"]]
+        vel["area_num_1"] = vel["area_num_1"].astype(int)
+    else:
+        vel = pd.DataFrame({"area_num_1": [], "velocity_score": [],
+                            "delta_income_pct": [], "delta_rent_pct": []})
+
     df = (cas[["area_num_1", "community", "area_sqmi", "geometry"]]
           .merge(crime, on="area_num_1", how="left")
           .merge(viol,  on="area_num_1", how="left")
@@ -145,7 +164,9 @@ def load_all():
           .merge(rent,  on="area_num_1", how="left")
           .merge(walk,  on="area_num_1", how="left")
           .merge(rail_per_ca, on="area_num_1", how="left")
-          .merge(bus_per_ca,  on="area_num_1", how="left"))
+          .merge(bus_per_ca,  on="area_num_1", how="left")
+          .merge(noise, on="area_num_1", how="left")
+          .merge(vel,   on="area_num_1", how="left"))
     df["rail_count"] = df["rail_count"].fillna(0).astype(int)
     df["bus_count"] = df["bus_count"].fillna(0).astype(int)
     df["bus_per_sqmi"] = df["bus_count"] / df["area_sqmi"]
@@ -299,10 +320,19 @@ def main():
     drop_df.to_csv(drop_log_path, index=False)
 
     rank_cols = ["area_num_1", "community", "composite_score",
+                 # composite axes
                  "walk_score_proxy", "transit_headroom", "safety_headroom",
                  "cost_headroom", "age_match", "quality_score",
+                 # rents
                  "median_rent_current", "effective_rent",
+                 # sidecar metrics (not in composite, just visible)
+                 "essential_services_density", "quiet_score",
+                 "noise_exposure_pct", "velocity_score",
+                 "delta_income_pct", "delta_rent_pct",
+                 # underlying counts
                  "violent_per_1k", "rail_count", "bus_per_sqmi",
+                 "social_count", "drinker_count", "essential_count",
+                 # demographics
                  "pct_built_2000_plus", "pct_rentals_2br_plus",
                  "population", "median_hh_income", "pct_25_39", "pct_never_married_15plus",
                  "pct_bachelors_plus", "pct_wfh"]
