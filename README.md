@@ -84,7 +84,7 @@ is independently re-runnable. `data/raw/` holds immutable downloads
 ## One-shot run (once all scripts are implemented)
 
 ```bash
-cd ~/2_projects/mapping/chicago_neighborhoods
+cd ~/2_projects/relocation/deep_dives/chicago_neighborhoods
 
 ./scripts/01_fetch_community_areas.sh
 ./scripts/02_fetch_chicago_data.sh
